@@ -5,12 +5,11 @@ using namespace std;
 
 int main()
 {
-    vector<vector<int>> ans;
+    char x = '8';
+    string s;
+    s.push_back(x);
 
-    for (int i = 0; i < 3; i++)
-        ans[i].resize(3);
+    s += "seen at" + to_string(1) + " " + to_string(2);
 
-    ans[2][1] = 7;
-
-    cout << ans[2][1];
+    cout << s;
 }
