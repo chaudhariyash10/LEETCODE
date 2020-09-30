@@ -1,6 +1,16 @@
 #include <stdc++.h>
 
 using namespace std;
+
+double myPow(double x, long n)
+{
+    if (n == 0)
+        return 1;
+    if (n > 0)
+        return Pow(x, n);
+    else
+        return 1 / Pow(x, -n);
+}
 double Pow(double x, long n)
 {
     if (n == 0)
@@ -13,15 +23,7 @@ double Pow(double x, long n)
         return x * myPow(x * x, (n - 1) / 2);
 }
 
-double myPow(double x, long n)
-{
-    if (n == 0)
-        return 1;
-    if (n > 0)
-        return Pow(x, n);
-    else
-        return 1 / Pow(x, -n);
-}
+
 
 int main()
 {
