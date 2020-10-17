@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 /**
  * Definition for a binary tree node.
@@ -11,6 +11,21 @@ using namespace std;
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+class TreeNode
+{
+public:
+    TreeNode *left;
+    TreeNode *right;
+    int val;
+
+    TreeNode(int val)
+    {
+        this->val = val;
+        this->left = nullptr;
+        this->right = nullptr;
+    }
+};
 class Solution
 {
 public:
