@@ -47,7 +47,7 @@ public:
 };
 
 
-//Better Runtime....
+//Better Runtime
 class Solution
 {
 public:
