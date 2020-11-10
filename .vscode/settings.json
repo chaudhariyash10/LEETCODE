@@ -3,7 +3,8 @@
         "ostream": "cpp",
         "iostream": "cpp",
         "vector": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "new": "cpp"
     },
     "search.searchEditor.reusePriorSearchConfiguration": true,
     "maven.view": "hierarchical"
