@@ -1,35 +1,12 @@
-#include <bits/stdc++.h>
+#include<stdc++.h>
+
 using namespace std;
 
-struct ListNode
+int main()
 {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr){};
-    ListNode(int x) : val(x), next(nullptr){};
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+    vector<int> v1;
+    v1.push_back(2);
+   
+    cout<<is_heap(v1.begin(), v1.end());
 
-class Solution
-{
-public:
-    ListNode *deleteDuplicates(ListNode *head)
-    {
-        if (head == nullptr || head->next == nullptr)
-            return head;
-
-        ListNode *ans = (ListNode *)new ListNode(-1);
-
-        ListNode *curNode = ans, *temp = head;
-
-        while (temp != nullptr)
-        {
-            curNode->next = temp;
-            curNode = curNode->next;
-            curNode->next = nullptr;
-            
-        }
-
-        return ans->next;
-    }
-};
+}
