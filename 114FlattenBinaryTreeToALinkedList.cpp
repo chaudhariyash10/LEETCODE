@@ -15,27 +15,34 @@ struct TreeNode
 class Solution
 {
 public:
-    void preOrder(TreeNode *root)
-    {
-        if (root == nullptr)
-            return;
-
-        cout << root->val;
-        preOrder(root->left);
-        preOrder(root->right);
-    }
-
-    TreeNode *helper(TreeNode *prevNode, TreeNode *nextNode)
-    {
-
-    }
-
     void flatten(TreeNode *root)
     {
         if (root == nullptr)
             return;
 
-        if (root->left)
-          root =  helper(root, root->left);
+        stack<TreeNode *> st;
+
+        st.push(root);
+
+        while (!st.empty())
+        {
+            TreeNode *curNode = st.top();
+            st.pop();
+
+            if (curNode->right)
+                st.push(curNode->right);
+            if (curNode->left)
+                st.push(curNode->left);
+
+            if (!st.empty())
+            {
+                curNode->right = st.top();
+            }
+            else
+            {
+                curNode->right = nullptr;
+            }
+            curNode->left = nullptr;
+        }
     }
 };
