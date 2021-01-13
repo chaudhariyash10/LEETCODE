@@ -61,6 +61,5 @@ public:
             double x = ((double)maxHeap.front() - (double)minHeap.front()) / 2;
             return x;
         }
-        
     }
 };

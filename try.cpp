@@ -13,16 +13,16 @@ public:
 
 int main()
 {
-    cout << (int)'a';
+    multiset<int, greater<int>> minHeap, maxHeap;
 
-    // priority_queue<pair<int, int>, vector<pair<int, int>>, comparator> pq;
+    minHeap.insert(10);
+    minHeap.insert(1);
+    minHeap.insert(11);
+    minHeap.insert(-10);
+    minHeap.insert(5);
 
-    // pq.push(make_pair(2, 1));
-    // pq.push(make_pair(20, 10));
-    // pq.push(make_pair(2, 2000000));
-    // pq.push(make_pair(200000, 1));
-    // pq.push(make_pair(2, -1));
+    multiset<int>::iterator it;
 
-    // cout << pq.top().first;
-    // cout << pq.top().second;
+    for (it = minHeap.begin(); it != minHeap.end(); it++)
+        cout << *it << " ";
 }

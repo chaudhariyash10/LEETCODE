@@ -4,10 +4,10 @@ using namespace std;
 
 class ProductOfNumbers
 {
-    
+
 public:
     ProductOfNumbers()
-    {
+    { 
     }
 
     void add(int num)
