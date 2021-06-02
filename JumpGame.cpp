@@ -4,37 +4,7 @@ using namespace std;
 class Solution
 {
 public:
-    bool helper(vector<int> &nums, vector<int> dp, int curIdx, int lastIdx)
-    {
 
-        if (curIdx >= lastIdx)
-            return 1;
-
-        if (nums[curIdx] == 0)
-            return dp[curIdx] = 0;
-
-        if (dp[curIdx] != -1)
-            return dp[curIdx];
-
-        bool ans = 0;
-        for (int i = 1; i <= nums[curIdx]; i++)
-        {
-            dp[curIdx + i] = helper(nums, dp, curIdx + i, lastIdx);
-            ans = ans || dp[curIdx + i];
-            if (ans == 1)
-                break;
-            // if (ans == 1)
-            // {
-            //     for (int j = 0; j < dp.size(); j++)
-            //         cout << dp[i] << " ";
-            //     cout << endl;
-            //     break;
-            // }
-        }
-
-        dp[curIdx] = ans;
-        return ans;
-    }
 
     bool canJump(vector<int> &nums)
     {
