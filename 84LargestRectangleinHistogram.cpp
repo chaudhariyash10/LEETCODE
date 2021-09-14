@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution
@@ -43,7 +44,7 @@ public:
         {
             if (st.empty())
             {
-                ans[i] = -1;
+                ans[i] = heights.size();
             }
             else if (heights[st.top()] < heights[i])
             {
@@ -56,7 +57,7 @@ public:
                     st.pop();
 
                 if (st.empty())
-                    ans[i] = -1;
+                    ans[i] = heights.size();
                 else
                     ans[i] = st.top();
             }
@@ -74,21 +75,16 @@ public:
         if (heights.size() == 1)
             return heights[0];
 
-        // vector<int> heights{6, 2, 5, 4, 5, 1, 6}
+        // vector<int> heights{6, 2, 5, 4, 5, 1, 6};
         vector<int> left = nearestSmallerToLeft(heights);
         vector<int> right = nearestSmallerToRight(heights);
-    
+
         int maxArea = 0;
 
         for (int i = 0; i < heights.size(); i++)
         {
-            int l = left[i], r = right[i];
-            if(l == -1)
-                l = 0;
-            if(r == -1)
-                r = heights.size() - 1;
-
-            maxArea = max(maxArea, (r - l - 1) * heights[i]);
+            if (maxArea < (right[i] - left[i] - 1) * heights[i])
+                maxArea = (right[i] - left[i] - 1) * heights[i];
         }
 
         return maxArea;
