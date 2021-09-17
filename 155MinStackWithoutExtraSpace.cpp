@@ -1,35 +1,60 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 class MinStack
 {
-
 public:
-    stack<int> s;
-    stack<int> minStack;
+    stack<long long> st;
+    long long mini;
+    /** initialize your data structure here. */
+    MinStack()
+    {
+        mini = -1;
+    }
+
     void push(int val)
     {
-        if (minStack.empty() || minStack.top() >= val)
-            minStack.push(val);
-        s.push(val);
+        if (st.empty())
+        {
+            st.push(val);
+            mini = val;
+        }
+
+        else if (val >= mini)
+        {
+            st.push(val);
+        }
+        else
+        {
+            st.push(2 * (long long)val - mini);
+            mini = val;
+        }
     }
 
     void pop()
     {
-        if (s.empty())
+        if (st.empty())
             return;
-        if (s.top() == minStack.top())
-            minStack.pop();
-        s.pop();
+
+        else
+        {
+            if (st.top() < mini)
+            {
+                mini = mini * 2 - st.top();
+            }
+            st.pop();
+        }
     }
 
     int top()
     {
-        return s.top();
+        if (st.top() < mini)
+            return mini;
+        else
+            return st.top();
     }
 
     int getMin()
     {
-        return minStack.top();
+        return mini;
     }
 };
