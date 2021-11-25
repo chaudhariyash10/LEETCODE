@@ -22,7 +22,6 @@ public:
 
         while (!s.empty())
         {
-
             int par = (s.begin())->second;
             visited[par] = true;
 

@@ -20,7 +20,7 @@ class Solution
     int idx;
 
 public:
-    TreeNode *helper(vector<int> &preorder, vector<int> &inorder, int l, int r)
+    TreeNode *helper(vector<int> &preorder, int l, int r)
     {
         if (l > r)
             return nullptr;
@@ -30,9 +30,9 @@ public:
         if (l == r)
             return temp;
 
-        temp->left = helper(preorder, inorder, l, umap[temp->val] - 1);
+        temp->left = helper(preorder, l, umap[temp->val] - 1);
 
-        temp->right = helper(preorder, inorder, umap[temp->val] + 1, r);
+        temp->right = helper(preorder,  umap[temp->val] + 1, r);
 
         return temp;
     }
@@ -45,6 +45,6 @@ public:
         for (int i = 0; i < n; i++)
             umap[inorder[i]] = i;
 
-        return helper(preorder, inorder, 0, n - 1);
+        return helper(preorder,  0, n - 1);
     }
 };
